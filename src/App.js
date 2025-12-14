@@ -1,11 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthProvider } from "./contexts/AuthContext";
 import CRMLayout from "./pages/crm/CRMLayout";
 import Dashboard from "./pages/crm/Dashboard";
@@ -17,6 +14,7 @@ import Credits from "./pages/crm/Credits";
 import ApiKeys from "./pages/crm/ApiKeys";
 import Settings from "./pages/crm/Settings";
 import { Toaster } from "./components/ui/sonner";
+import AccessCodeGate from "./components/AccessCodeGate";
 
 function App() {
   return (
@@ -25,21 +23,27 @@ function App() {
         <BrowserRouter>
           <Routes>
             {/* Main Website */}
-            <Route path="/" element={
-              <>
-                <Navbar />
-                <Home />
-                <Footer />
-                <Toaster />
-              </>
-            } />
-            
-            {/* CRM Panel - Protected Routes */}
-            <Route path="/crm" element={
-              <ProtectedRoute>
-                <CRMLayout />
-              </ProtectedRoute>
-            }>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Navbar />
+                  <Home />
+                  <Footer />
+                  <Toaster />
+                </>
+              }
+            />
+
+            {/* CRM Panel - Access Code Gate */}
+            <Route
+              path="/crm"
+              element={
+                <AccessCodeGate>
+                  <CRMLayout />
+                </AccessCodeGate>
+              }
+            >
               <Route index element={<Dashboard />} />
               <Route path="trunks" element={<Trunks />} />
               <Route path="calls" element={<Calls />} />
