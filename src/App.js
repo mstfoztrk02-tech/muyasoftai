@@ -34,10 +34,6 @@ function App() {
               </>
             } />
             
-            {/* Authentication */}
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            
             {/* CRM Panel - Protected Routes */}
             <Route path="/crm" element={
               <ProtectedRoute>
