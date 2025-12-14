@@ -20,33 +20,6 @@
     -->
         <title>Muyasoft AI</title>
 
-<script>
-  (function () {
-    // 1) Basit ayarlar
-    var ACCESS_CODE = "MUYA-2025";      // burayı değiştirin
-    var STORAGE_KEY = "muya_access_ok"; // tarayıcıda hatırlama anahtarı
-
-    // 2) Daha önce doğru kod girilmişse geç
-    try {
-      if (localStorage.getItem(STORAGE_KEY) === "true") return;
-    } catch (e) {}
-
-    // 3) Kod sor (kullanıcı iptal ederse siteyi durdur)
-    var code = prompt("Erişim Kodu:");
-    if (!code || code.trim() !== ACCESS_CODE) {
-      // yanlışsa sayfayı boş bırakıp durdur
-      document.documentElement.innerHTML = "";
-      alert("Erişim kodu hatalı.");
-      throw new Error("Access blocked");
-    }
-
-    // 4) Doğruysa hatırla
-    try {
-      localStorage.setItem(STORAGE_KEY, "true");
-    } catch (e) {}
-  })();
-</script>
-
         <script src="https://assets.emergent.sh/scripts/emergent-main.js"></script>
     </head>
     <body>
