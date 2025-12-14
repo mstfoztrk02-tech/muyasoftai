@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/ca
 import { Badge } from '../../components/ui/badge';
 import { Button } from '../../components/ui/button';
 import { callTrafficData, aiPerformanceData, trunks } from '../../data/crmMock';
-import useStats from '../../hooks/useStats';
+import useStats from '../../hooks/useStatsMock';
 
 const Dashboard = () => {
   const { stats, loading, error, refetch } = useStats();
